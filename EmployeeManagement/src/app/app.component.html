@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div fxFlex fxLayoutAlign="start start">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+                <span class="left-margin">Employee Management</span>
+            </button>
+        </div>
+        <div fxFlex fxLayoutAlign="end end">
+            <button mat-icon-button (click)="NavigateToAddEmployees()" matTooltip="Add Employee">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav>
+        <mat-list>
+            <mat-list-item>
+                <a > <mat-icon color="primary" fxFlex="20" >home</mat-icon>
+                    Home</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a [routerLink]="'/EmployeeList'"> <mat-icon color="primary" fxFlex="20" >info</mat-icon>
+                    Employee Details</a>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

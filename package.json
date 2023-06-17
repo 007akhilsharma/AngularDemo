@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/material": "^16.1.0",
+    "ag-grid-community": "^30.0.0"
+  }
+}

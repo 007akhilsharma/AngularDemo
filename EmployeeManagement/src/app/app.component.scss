@@ -1,0 +1,33 @@
+mat-sidenav-container {
+    height: calc(100vh - 85px);
+}
+
+mat-sidenav-content {
+    width: 100%;
+}
+
+mat-sidenav {
+    width: 200px;
+}
+
+
+.content-centre {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-margin {
+    margin-left: 20px !important;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+
+    text-decoration: none;
+    cursor: pointer;
+}

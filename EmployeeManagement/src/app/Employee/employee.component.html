@@ -1,0 +1,85 @@
+<mat-card fxFlex="100" style="z-index: 1; margin: 5px;">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    
+    <div fxFlex="100" fxLayout="column"  style="margin: 5px;">
+        
+        <div fxFlex fxLayout="row" >
+            <h4 Highlight >{{pageTitle |  concat :'Management'}} </h4>
+            <p *conditionApply="isEnabled">Custome directive</p>
+        </div>
+        <div fxFlex="100" fxLayout="row">
+            <div fxFlex="22">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput (blur)="logValidationErrors(formGroup)" placeholder="Name" formControlName="fullName">
+              
+                <mat-icon matSuffix color="primary">sentiment_very_satisfied</mat-icon>
+                
+
+            </mat-form-field>
+        </div>
+        <div fxFlex="75">
+            <mat-error >{{errorMessages.fullName}}</mat-error>
+        </div>
+        </div>
+        <div fxFlex fxLayout="row">
+            <div fxFlex="22">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+                
+                <mat-icon matSuffix color="primary">mail</mat-icon>
+                
+            </mat-form-field>
+        </div>
+        <div fxFlex="75">
+            <mat-error >{{errorMessages.email}}</mat-error>
+        </div>
+        </div>
+        <div fxFlex fxLayout="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Type</mat-label>
+                <mat-select formControlName="employeeType">
+                    <mat-option *ngFor="let employeeType of employeeTypes" [value]="employeeType.value">
+                        {{employeeType.text}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div fxFlex fxLayout="row">
+            <mat-radio-group formControlName="gender"  color="primary">
+                <mat-radio-button value="1">Male</mat-radio-button>
+                <mat-radio-button value="2">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div fxFlex fxLayout="row">
+            <div fxFlex="22">
+            <mat-form-field appearance="outline">
+                <mat-label>Comments</mat-label>
+                <textarea matInput formControlName="comment"></textarea>
+                
+            </mat-form-field>
+            </div>
+            <div fxFlex="75">
+                <mat-error >{{errorMessages.comment}}</mat-error>
+            </div>
+        </div>
+
+        <div fxFlex fxLayout="row">
+            <mat-checkbox color="primary" formControlName="confirm" aria-required="true">Confirm above details are correct</mat-checkbox>
+        </div> 
+        <div fxFlex fxLayout="row">
+            <button type="submit" mat-raised-button color="primary">Save</button>
+        </div>
+    
+    </div>
+
+</form>
+
+<div *ngFor="let employee of employees ">
+    {{employee.Name}}
+
+</div>
+</mat-card>
+
